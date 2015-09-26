@@ -15,6 +15,9 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class Proxy
   def initialize(target_object)
     @object = target_object
+  end
+  def method_missing(name, *args)
+    @object.send(name, *args) 
     # ADD MORE CODE HERE
   end
 
